@@ -1,0 +1,4 @@
+# Netlify：连接 Git 仓库时，构建命令留空或填下面一行均可
+[build]
+  command = "echo 'static'"
+  publish = "."
