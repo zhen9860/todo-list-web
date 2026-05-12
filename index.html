@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>待办清单</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-aurora" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">今日专注</p>
+        <h1>待办清单</h1>
+        <p class="lede">写下任务、勾选完成，数据保存在本机浏览器。</p>
+      </header>
+
+      <section class="panel" aria-label="添加任务">
+        <form id="form-add" class="add-row" autocomplete="off">
+          <input
+            id="input-title"
+            type="text"
+            name="title"
+            maxlength="200"
+            placeholder="添加新任务，按 Enter 保存"
+            aria-label="任务标题"
+            required
+          />
+          <button type="submit" class="btn primary">添加</button>
+        </form>
+      </section>
+
+      <section class="panel list-panel" aria-label="任务列表">
+        <div class="toolbar">
+          <div class="filters" role="tablist" aria-label="筛选">
+            <button type="button" class="chip active" data-filter="all" role="tab" aria-selected="true">
+              全部
+            </button>
+            <button type="button" class="chip" data-filter="active" role="tab" aria-selected="false">
+              未完成
+            </button>
+            <button type="button" class="chip" data-filter="completed" role="tab" aria-selected="false">
+              已完成
+            </button>
+          </div>
+          <button type="button" id="btn-clear" class="btn ghost sm" hidden>清除已完成</button>
+        </div>
+
+        <ul id="list" class="todo-list" aria-live="polite"></ul>
+        <p id="empty" class="empty" hidden>暂无任务，从上方添加第一条吧。</p>
+      </section>
+
+      <footer class="meta">
+        <span id="count-active"></span>
+        <span class="hint">提示：点击文字可编辑，勾选圆圈标记完成。</span>
+      </footer>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
